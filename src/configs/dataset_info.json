@@ -1,0 +1,16 @@
+{
+    "nuscenes_trajectory": {
+      "file_name": "formatted_dataset.jsonl",
+      "columns": {
+        "prompt": "conversations",
+        "query": "conversations.0.value",
+        "response": "conversations.1.value",
+        "history": null,
+        "system": null,
+        "image": "image",
+        "ground_truth_trajectory": "ground_truth_trajectory",
+        "bev_features": "bev_features",
+        "vector_features": "vector_features"
+      }
+    }
+}

@@ -620,6 +620,7 @@ def get_behavior_instruction_qa(info, behavior_result, stitched_surround_path):
             """)
         
 
+
         lat_id = behavior_instruction['lateral_id']
         long_id = behavior_instruction['longitudinal_id']
         composite_text = behavior_instruction['composite_text']

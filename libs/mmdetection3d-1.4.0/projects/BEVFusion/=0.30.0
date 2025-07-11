@@ -1,0 +1,13 @@
+Looking in indexes: https://mirrors.ivolces.com/pypi/simple/
+Requirement already satisfied: huggingface-hub in /root/miniforge3/envs/ykl/lib/python3.10/site-packages (0.25.1)
+Requirement already satisfied: filelock in /root/miniforge3/envs/ykl/lib/python3.10/site-packages (from huggingface-hub) (3.14.0)
+Requirement already satisfied: fsspec>=2023.5.0 in /root/miniforge3/envs/ykl/lib/python3.10/site-packages (from huggingface-hub) (2025.3.0)
+Requirement already satisfied: packaging>=20.9 in /root/miniforge3/envs/ykl/lib/python3.10/site-packages (from huggingface-hub) (24.2)
+Requirement already satisfied: pyyaml>=5.1 in /root/miniforge3/envs/ykl/lib/python3.10/site-packages (from huggingface-hub) (6.0.2)
+Requirement already satisfied: requests in /root/miniforge3/envs/ykl/lib/python3.10/site-packages (from huggingface-hub) (2.28.2)
+Requirement already satisfied: tqdm>=4.42.1 in /root/miniforge3/envs/ykl/lib/python3.10/site-packages (from huggingface-hub) (4.65.2)
+Requirement already satisfied: typing-extensions>=3.7.4.3 in /root/miniforge3/envs/ykl/lib/python3.10/site-packages (from huggingface-hub) (4.14.0)
+Requirement already satisfied: charset-normalizer<4,>=2 in /root/miniforge3/envs/ykl/lib/python3.10/site-packages (from requests->huggingface-hub) (3.4.2)
+Requirement already satisfied: idna<4,>=2.5 in /root/miniforge3/envs/ykl/lib/python3.10/site-packages (from requests->huggingface-hub) (3.10)
+Requirement already satisfied: urllib3<1.27,>=1.21.1 in /root/miniforge3/envs/ykl/lib/python3.10/site-packages (from requests->huggingface-hub) (1.26.20)
+Requirement already satisfied: certifi>=2017.4.17 in /root/miniforge3/envs/ykl/lib/python3.10/site-packages (from requests->huggingface-hub) (2025.6.15)

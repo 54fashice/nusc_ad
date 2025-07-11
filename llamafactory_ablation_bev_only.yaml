@@ -1,0 +1,78 @@
+### model
+model_name_or_path: meta-llama/Llama-2-7b-chat-hf
+use_fast_tokenizer: true
+torch_dtype: float16
+
+### method
+stage: sft
+do_train: true
+finetuning_type: lora
+lora_target: all
+lora_rank: 8
+lora_alpha: 16
+lora_dropout: 0.05
+
+### dataset
+dataset: nuscenes_trajectory
+template: llama2
+cutoff_len: 1024
+max_samples: 100000
+overwrite_cache: true
+preprocessing_num_workers: 16
+
+### output
+output_dir: ./saves/trajectory_llama2-7b/ablation_bev_only
+logging_steps: 10
+save_steps: 200
+plot_loss: true
+overwrite_output_dir: true
+
+### train
+per_device_train_batch_size: 2
+gradient_accumulation_steps: 8
+learning_rate: 1.0e-04
+num_train_epochs: 3.0
+lr_scheduler_type: cosine
+warmup_ratio: 0.1
+fp16: true
+
+### eval
+val_size: 0.1
+evaluation_strategy: steps
+eval_steps: 200
+per_device_eval_batch_size: 1
+
+### custom training settings - BEV ONLY ABLATION
+training_stage: sft
+enable_modalities:
+  image: false
+  bev: true
+  vector: false
+
+# Loss weights (focus on BEV-text alignment)
+lm_loss_weight: 1.0
+traj_loss_weight: 1.5
+align_loss_weight: 0.0
+bev_text_loss_weight: 0.3
+bev_vector_loss_weight: 0.0
+
+# Multimodal settings (BEV only)
+use_bev_features: true
+use_vectorized_inputs: false
+num_camera_views: 6
+freeze_vision_tower: true
+freeze_llm: false
+freeze_bevfusion: true
+
+# BEVFusion configuration
+bevfusion_config_path: /storage/data-acc/kaile.yang/nusc_ad/libs/mmdetection3d-1.4.0/projects/BEVFusion/configs/bevfusion_lidar-cam_voxel0075_second_secfpn_8xb4-cyclic-20e_nus-3d.py
+bevfusion_checkpoint_path: null
+
+# Point cloud and BEV settings
+point_cloud_range: [-51.2, -51.2, -5.0, 51.2, 51.2, 3.0]
+voxel_size: [0.2, 0.2, 8.0]
+bev_size: [180, 180]
+
+# Model architecture
+trajectory_output_dim: 12
+num_trajectory_points: 6
